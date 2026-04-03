@@ -1,0 +1,507 @@
+{
+  "info": {
+    "_postman_id": "8fc66b3c-7ce3-440f-b134-c81e33d89413",
+    "name": "Microservicios Híbrido — Hexagonal",
+    "description": "Endpoints de la arquitectura Puertos & Adaptadores. Micro-A: cuenta-ahorro-service (8081). Micro-B: cuenta-corriente-service (8082).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "41530567"
+  },
+  "item": [
+    {
+      "name": "Cuenta-ahorro-service (8081)",
+      "item": [
+        {
+          "name": "1. GET Listar Cuentas Ahorro (Paginado)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/ahorro?page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "ahorro"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "1. GET Listar Cuentas Ahorro (Paginado)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/ahorro?page=0&size=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "ahorro"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Apr 2026 05:12:42 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"numeroCuenta\": \"001-AHO-001\",\n            \"titular\": \"Ana López\",\n            \"saldo\": 15000,\n            \"tasaInteresAnual\": 4.25,\n            \"fechaApertura\": \"2025-01-15\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalPages\": 1,\n    \"totalElements\": 1,\n    \"last\": true,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"numberOfElements\": 1,\n    \"first\": true,\n    \"empty\": false\n}"
+            }
+          ]
+        },
+        {
+          "name": "2. POST Crear Cuenta Ahorro",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroCuenta\": \"001-AHO-001\",\n  \"titular\": \"Ana López\",\n  \"saldo\": 15000.00,\n  \"tasaInteresAnual\": 4.25,\n  \"fechaApertura\": \"2025-01-15\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/ahorro",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "ahorro"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "2. POST Crear Cuenta Ahorro",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"numeroCuenta\": \"001-AHO-001\",\n  \"titular\": \"Ana López\",\n  \"saldo\": 15000.00,\n  \"tasaInteresAnual\": 4.25,\n  \"fechaApertura\": \"2025-01-15\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:8081/api/ahorro",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "ahorro"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Apr 2026 05:05:09 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"numeroCuenta\": \"001-AHO-001\",\n    \"titular\": \"Ana López\",\n    \"saldo\": 15000,\n    \"tasaInteresAnual\": 4.25,\n    \"fechaApertura\": \"2025-01-15\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "3. GET Saldo Corriente (Llama a Micro-B via WebClient — Reactivo)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/ahorro/1/saldo-corriente",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "ahorro",
+                "1",
+                "saldo-corriente"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "3. GET Saldo Corriente (Llama a Micro-B via WebClient — Reactivo)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8081/api/ahorro/1/saldo-corriente",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "ahorro",
+                    "1",
+                    "saldo-corriente"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Apr 2026 05:12:31 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"numeroCuenta\": \"001-CTE-001\",\n    \"titular\": \"Corp S.A. de C.V.\",\n    \"saldo\": 75000,\n    \"limiteCredito\": 200000,\n    \"banco\": \"BBVA\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cuenta-corriente-service (8082)",
+      "item": [
+        {
+          "name": "1. GET Listar Cuentas Corriente (Paginado)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/corriente?page=0&size=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "corriente"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "1. GET Listar Cuentas Corriente (Paginado)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/corriente?page=0&size=10",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "corriente"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Apr 2026 05:13:01 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"numeroCuenta\": \"001-CTE-001\",\n            \"titular\": \"Corp S.A. de C.V.\",\n            \"saldo\": 75000,\n            \"limiteCredito\": 200000,\n            \"banco\": \"BBVA\",\n            \"fechaApertura\": \"2025-03-01\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 1,\n    \"empty\": false\n}"
+            }
+          ]
+        },
+        {
+          "name": "2. POST Crear Cuenta Corriente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroCuenta\": \"001-CTE-001\",\n  \"titular\": \"Corp S.A. de C.V.\",\n  \"saldo\": 75000.00,\n  \"limiteCredito\": 200000.00,\n  \"banco\": \"BBVA\",\n  \"fechaApertura\": \"2025-03-01\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8082/api/corriente",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "corriente"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "2. POST Crear Cuenta Corriente",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"numeroCuenta\": \"001-CTE-001\",\n  \"titular\": \"Corp S.A. de C.V.\",\n  \"saldo\": 75000.00,\n  \"limiteCredito\": 200000.00,\n  \"banco\": \"BBVA\",\n  \"fechaApertura\": \"2025-03-01\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:8082/api/corriente",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "corriente"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Apr 2026 05:05:32 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"numeroCuenta\": \"001-CTE-001\",\n    \"titular\": \"Corp S.A. de C.V.\",\n    \"saldo\": 75000,\n    \"limiteCredito\": 200000,\n    \"banco\": \"BBVA\",\n    \"fechaApertura\": \"2025-03-01\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "3. GET Info Ahorro (Llama a Micro-A via RestClient — Sincrónico)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/corriente/1/ahorro-info",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "corriente",
+                "1",
+                "ahorro-info"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "3. GET Info Ahorro (Llama a Micro-A via RestClient — Sincrónico)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/corriente/1/ahorro-info",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "corriente",
+                    "1",
+                    "ahorro-info"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 03 Apr 2026 05:13:10 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"numeroCuenta\": \"001-AHO-001\",\n    \"titular\": \"Ana López\",\n    \"saldo\": 15000,\n    \"tasaInteresAnual\": 4.25,\n    \"fechaApertura\": \"2025-01-15\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
